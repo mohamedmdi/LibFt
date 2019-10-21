@@ -6,19 +6,20 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 15:45:08 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/18 23:10:43 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/21 23:14:26 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int res;
-	int sign;
+	int			i;
+	long int	res;
+	int			sign;
 
 	i = 0;
 	res = 0;
-	while (str[i] <= 32)
+	sign = 1;
+	while (str[i] <= 32 && str[i] != 27)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -28,6 +29,8 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (res > 2147483647)
+			return ((sign + 1) * -1 / 2);
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
