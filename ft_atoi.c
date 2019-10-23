@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 15:45:08 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/21 23:14:26 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/23 21:12:30 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	res = 0;
 	sign = 1;
-	while (str[i] <= 32 && str[i] != 27)
+	while (str[i] <= 32 && str[i] && str[i] != 27)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

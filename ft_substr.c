@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 23:46:09 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/23 15:11:42 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/23 22:23:07 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (l - start < len)
 		len = l - start;
 	str = (char*)malloc(sizeof(*str) * len + 1);
-	if (str == 0 || len == 0 || start > l)
+	if (str == 0)
 		return (0);
+	if (len == 0 || start >= l)
+		return (ft_strdup(""));
 	while (i < len && start <= l)
 	{
 		str[i++] = s[start];
