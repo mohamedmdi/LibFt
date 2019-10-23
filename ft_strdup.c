@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 18:10:11 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/18 23:13:36 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/22 19:59:51 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strdup(const char *src)
 	while (src[l] != '\0')
 		l++;
 	stri = (char*)malloc(sizeof(*stri) * (l + 1));
+	if (!stri)
+		return (0);
 	while (i < l)
 	{
 		stri[i] = src[i];

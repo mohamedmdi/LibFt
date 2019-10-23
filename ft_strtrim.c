@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 23:39:22 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/18 23:28:50 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/22 22:31:29 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ char    *ft_strtrim(char const *s1, char const *set)
 		strt++;
 	while (check(s1[end - 1], set))
 		end--;
+	if (strt > end)
+		return (ft_strdup(""));
 	l = end - strt;
 	str = (char *)malloc(sizeof(*str) * l + 1);
+	if (!str)
+		return (0);
 	l = 0;
 	while (strt < end)
 		str[l++] = s1[strt++];
