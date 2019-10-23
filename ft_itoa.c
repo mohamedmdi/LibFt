@@ -6,19 +6,23 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 21:47:30 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/18 23:17:07 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/23 19:14:35 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*writeandswap(int n, int l)
+char	*writeandswap(long n, int l)
 {
 	int		ret;
 	char	*str;
 
 	str = (char *)malloc(sizeof(*str) * l + 1);
+	if (!str)
+		return (0);
 	str[l--] = '\0';
+	if (n == 0)
+		str[0] = '0';
 	while (n != 0)
 	{
 		ret = n % 10;
@@ -28,7 +32,7 @@ char	*writeandswap(int n, int l)
 	return (str);
 }
 
-int		flen(int n)
+int		flen(long n)
 {
 	int ii;
 
@@ -51,22 +55,24 @@ char	*ft_itoa(int n)
 	int		isn;
 	int		l;
 	char	*str;
+	long	ui;
 
 	isn = 0;
-	l = flen(n);
-	if (n == 0)
+	ui = n;
+	l = flen(ui);
+	if (ui == 0)
 	{
-		str = (char *)malloc(sizeof(*str) * 2);
-		str[0] = '0';
-		str[1] = '\0';
+		str = writeandswap(ui, 1);
 		return (str);
 	}
 	if (n < 0)
 	{
 		isn = 1;
-		n *= -1;
+		ui = ui * -1;
 	}
-	str = writeandswap(n, l);
+	str = writeandswap(ui, l);
+	if (!str)
+		return (0);
 	if (isn)
 		str[0] = '-';
 	return (str);

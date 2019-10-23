@@ -6,83 +6,81 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:30:11 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/18 23:16:43 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/23 15:06:56 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		my_isspace(char c, char ss)
+static int	ft_strcpy_c(char *dest, char const *src, char c)
 {
-	if (c == ss)
-		return (1);
-	else
-		return (0);
-}
+	int decalage;
 
-int		count_ln(char const *str, int index, char ss)
-{
-	int i;
-
-	i = index;
-	while (my_isspace(str[i], ss) == 0)
+	decalage = 0;
+	while (*src && *src != c)
 	{
-		i++;
+		*dest = *src;
+		++dest;
+		++src;
+		++decalage;
 	}
-	return (i - index);
+	*dest = '\0';
+	return (decalage);
 }
 
-int		my_count_word(char const *str, char ss)
+static int	ft_nbstr_c(char const *str, char c)
 {
-	int i;
-	int nb;
+	int len;
 
-	i = 0;
-	nb = 0;
-	if (my_isspace(str[i], ss) == 0)
-		nb++;
-	while (str[i] != '\0')
+	len = 0;
+	while (*str)
 	{
-		if (my_isspace(str[i], ss))
-		{
-			while (my_isspace(str[i], ss) == 1)
-			{
-				if (str[i] == '\0')
-					return (nb);
-				i++;
-			}
-			nb++;
-		}
-		i++;
+		while (*str && *str == c)
+			++str;
+		if (*str)
+			++len;
+		while (*str && *str != c)
+			++str;
 	}
-	return (nb);
+	return (len);
 }
 
-char	**ft_split(char const *s, char c)
+static int	ft_strlen_c(char const *str, char c)
 {
+	int len;
+
+	len = 0;
+	while (*str && *str != c)
+	{
+		++str;
+		++len;
+	}
+	return (len);
+}
+
+char		**ft_split(char const *str, char c)
+{
+	char	**s1;
 	int		i;
-	int		j;
-	int		k;
-	char	**send;
 
 	i = 0;
-	j = 0;
-	send = malloc(sizeof(char*) * (my_count_word(s, c) + 1));
-	while (s[j] != '\0' && i < (my_count_word(s, c)))
+	if (!str)
+		return (0);
+	if (!(s1 = (char**)malloc(sizeof(*s1)
+					* (ft_nbstr_c(str, c) + 1))))
+		return (0);
+	while (*str && *str == c)
+		++str;
+	while (*str)
 	{
-		k = 0;
-		while (my_isspace(s[j], c) == 1)
-			j++;
-		send[i] = (char*)malloc(sizeof(char) * (count_ln(s, j, c) + 1));
-		while (my_isspace(s[j], c) == 0)
-		{
-			send[i][k] = s[j];
-			j++;
-			k++;
-		}
-		send[i][k++] = '\0';
-		i++;
+		if (!(s1[i] = (char*)malloc(sizeof(**s1)
+						* (ft_strlen_c(str, c) + 1))))
+			return (0);
+		str = str + ft_strcpy_c(s1[i], str, c);
+		++i;
+		while (*str && *str == c)
+			++str;
 	}
-	send[i] = 0;
-	return (send);
+	s1[i] = 0;
+	return (s1);
 }

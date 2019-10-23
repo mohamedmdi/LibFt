@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:53:19 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/19 15:10:06 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/23 17:51:51 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	ft_putstr_fd(char *s, int fd)
 	int i;
 
 	i = 0;
-	while (s[i])
+	if (s)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		while (s[i])
+		{
+			write(fd, &s[i], 1);
+			i++;
+		}
 	}
 }

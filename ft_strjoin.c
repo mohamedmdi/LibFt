@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 18:44:13 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/22 21:49:42 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/23 15:15:06 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (0);
 	while (s1[i])
 		i++;
 	while (s2[j])
 		j++;
 	txt = (char *)malloc(sizeof(*txt) * (i + j + 1));
-	if(!txt)
+	if (!txt)
 		return (0);
 	temp = txt;
 	while (*s1)
