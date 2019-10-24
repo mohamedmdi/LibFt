@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 23:39:22 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/23 15:15:28 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/24 13:49:33 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	end = ft_strlen(s1);
 	while (check(s1[strt], set))
-		strt++;
+		if (s1[++strt] == '\0')
+			return (ft_strdup(""));
 	while (check(s1[end - 1], set))
 		end--;
 	if (strt > end)
