@@ -6,11 +6,19 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:30:11 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/23 15:06:56 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/24 19:21:25 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	**freefunc(char **s1, int i)
+{
+	while (i > 0 && i--)
+		free(s1[i]);
+	free(s1);
+	return (0);
+}
 
 static int	ft_strcpy_c(char *dest, char const *src, char c)
 {
@@ -75,7 +83,7 @@ char		**ft_split(char const *str, char c)
 	{
 		if (!(s1[i] = (char*)malloc(sizeof(**s1)
 						* (ft_strlen_c(str, c) + 1))))
-			return (0);
+			return (freefunc(s1, i));
 		str = str + ft_strcpy_c(s1[i], str, c);
 		++i;
 		while (*str && *str == c)
