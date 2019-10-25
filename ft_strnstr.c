@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 15:54:49 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/19 15:07:12 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/25 18:08:26 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 
 	i = 0;
 	j = 0;
-	if (to_find[0] == '\0')
-		return (void *)str;
-	while (str[i] != '\0' && n > 0)
+	if (!*to_find)
+		return ((char *)str);
+	if (n == 0)
+		return (0);
+	while (str[i] && n > 0)
 	{
 		j = 0;
 		while (str[i + j] == to_find[j] && n > 0)

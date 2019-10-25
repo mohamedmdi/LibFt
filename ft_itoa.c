@@ -6,13 +6,13 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 21:47:30 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/23 19:14:35 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/24 19:52:40 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*writeandswap(long n, int l)
+static char		*writeandswap(long n, int l)
 {
 	int		ret;
 	char	*str;
@@ -32,7 +32,7 @@ char	*writeandswap(long n, int l)
 	return (str);
 }
 
-int		flen(long n)
+static int		flen(long n)
 {
 	int ii;
 
@@ -50,7 +50,7 @@ int		flen(long n)
 	return (ii);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	int		isn;
 	int		l;

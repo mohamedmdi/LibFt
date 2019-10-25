@@ -6,7 +6,7 @@
 #    By: mchergui <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/18 19:34:00 by mchergui          #+#    #+#              #
-#    Updated: 2019/10/19 19:36:16 by mchergui         ###   ########.fr        #
+#    Updated: 2019/10/24 20:01:08 by mchergui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,3 @@ fclean:
 	rm -f $(NAME)
 
 re: fclean all
-
-bonus:
-	echo "Hello"

@@ -6,13 +6,13 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 23:39:22 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/24 13:49:33 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/24 19:59:38 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		check(char c, char const *set)
+static int		check(char c, char const *set)
 {
 	while (*set)
 		if (*set++ == c)
@@ -20,7 +20,7 @@ int		check(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
 	int		strt;
 	int		end;

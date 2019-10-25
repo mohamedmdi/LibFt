@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 11:49:00 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/21 22:53:49 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/25 17:13:48 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 	size_t i;
 
 	i = 0;
+	if (n == 0)
+		return (ft_strlen(src));
 	while (*dest && n > 0)
 	{
-		(void)*dest++;
+		dest++;
 		i++;
 		n--;
 	}

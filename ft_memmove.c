@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:50:51 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/19 22:31:48 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/25 15:57:35 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	tmp = dst;
 	s = src;
+	if (dst == src)
+		return (dst);
 	if (dst == 0 && src == 0)
 		return (0);
 	if (dst <= src)
