@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 12:16:54 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/24 21:02:42 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/27 21:25:12 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char	*ft_strchr(const char *str, int ch)
 {
-	char *s;
+	size_t i;
+	size_t j;
 
-	s = (char *)str;
-	while (*s != ch)
+	i = 0;
+	j = ft_strlen(str) + 1;
+	while (j--)
 	{
-		if (*s == '\0')
-			return (0);
-		s++;
+		if (str[i] == (unsigned char)ch)
+			return ((char*)(str + i));
+		i++;
 	}
-	return (s);
+	return (0);
 }
