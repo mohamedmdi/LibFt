@@ -6,7 +6,7 @@
 /*   By: mchergui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 12:52:19 by mchergui          #+#    #+#             */
-/*   Updated: 2019/10/27 21:39:19 by mchergui         ###   ########.fr       */
+/*   Updated: 2019/10/28 16:36:40 by mchergui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dst, const void *str, size_t n)
 	i = 0;
 	s1 = (unsigned char*)dst;
 	s2 = (unsigned char*)str;
+	if (s1 == s2)
+		return (s1);
 	if (!s1 && !s2)
 		return (0);
 	while (i < n)
